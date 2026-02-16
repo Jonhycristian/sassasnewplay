@@ -22,4 +22,14 @@ app.get('/api', (req, res) => {
     res.send('API is running...');
 });
 
+app.get('/api/debug-env', (req, res) => {
+    res.json({
+        message: 'Environment Debug',
+        hasUrl: !!process.env.DATABASE_URL,
+        urlPrefix: process.env.DATABASE_URL ? process.env.DATABASE_URL.substring(0, 15) + '...' : 'N/A',
+        nodeEnv: process.env.NODE_ENV,
+        hasJwtSecret: !!process.env.JWT_SECRET
+    });
+});
+
 module.exports = app;

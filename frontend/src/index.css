@@ -1,0 +1,106 @@
+:root {
+  --bg-color: #0f172a; /* Slate 900 */
+  --surface-color: #1e293b; /* Slate 800 */
+  --surface-hover: #334155; /* Slate 700 */
+  --primary-color: #6366f1; /* Indigo 500 */
+  --primary-hover: #4f46e5; /* Indigo 600 */
+  --secondary-color: #3b82f6; /* Blue 500 */
+  --text-color: #f8fafc; /* Slate 50 */
+  --text-muted: #94a3b8; /* Slate 400 */
+  --danger-color: #ef4444; /* Red 500 */
+  --success-color: #10b981; /* Emerald 500 */
+  --warning-color: #f59e0b; /* Amber 500 */
+  --border-color: #334155; /* Slate 700 */
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.btn-danger:hover {
+  opacity: 0.9;
+}
+
+.input-field {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  border-color: var(--primary-color);
+  ring: 2px solid var(--primary-color);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--surface-hover);
+}

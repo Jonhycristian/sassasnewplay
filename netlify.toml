@@ -1,18 +1,29 @@
+# Configuração Segura para Monorepo com Dependências no Root
 [build]
+  # Base é Raiz para garantir que o Netlify instale o package.json do Root (Express, Serverless)
   base = "/"
-  publish = "frontend/dist"
+  
+  # Comando de Build: Roda o script "build" do package.json da raiz
   command = "npm run build"
+  
+  # Diretório de Publicação: Onde o Vite gera os arquivos finais
+  publish = "frontend/dist"
 
-[functions]
-  directory = "netlify/functions"
-
+# REDIRECIONAMENTOS (CRUCIAL PARA TELA BRANCA E API)
 [[redirects]]
+  # Redireciona chamadas da API para a função Serverless (Backend)
   from = "/api/*"
   to = "/.netlify/functions/api/:splat"
   status = 200
   force = true
 
 [[redirects]]
+  # Redireciona qualquer outra rota para o React (Evita erro 404/Tela Branca)
   from = "/*"
   to = "/index.html"
   status = 200
+
+# CONFIGURAÇÃO DAS FUNÇÕES (BACKEND)
+[functions]
+  directory = "netlify/functions" # Caminho relativo da raiz
+  node_bundler = "esbuild"

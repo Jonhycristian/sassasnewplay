@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: '/api', // Relative path to use Netlify redirects
+    // Se estiver rodando localmente (vite dev), usa localhost.
+    // Se estiver em produção (Netlify), usa /api que o toml redireciona.
+    baseURL: import.meta.env.DEV ? 'http://localhost:5000/api' : '/api',
 });
 
 // Add a request interceptor to attach the token

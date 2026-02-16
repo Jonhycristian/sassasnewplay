@@ -1,10 +1,14 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
+if (!process.env.DATABASE_URL) {
+  throw new Error('DATABASE_URL environment variable is missing');
+}
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false, // Required for Neon and many cloud providers
+    rejectUnauthorized: false,
   },
 });
 

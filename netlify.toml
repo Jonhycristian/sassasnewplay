@@ -25,5 +25,6 @@
 
 # CONFIGURAÇÃO DAS FUNÇÕES (BACKEND)
 [functions]
-  directory = "netlify/functions" # Caminho relativo da raiz
+  directory = "netlify/functions"
   node_bundler = "esbuild"
+  external_node_modules = ["pg"]

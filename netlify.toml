@@ -1,16 +1,16 @@
 [build]
-  command = "npm run build"
+  base = "/"
   publish = "frontend/dist"
+  command = "npm run build"
 
 [functions]
-  description = "Backend Functions"
   directory = "netlify/functions"
-  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/api/:splat"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/*"

@@ -25,6 +25,6 @@ exports.login = async (req, res) => {
         res.json({ token, user: { id: user.id, email: user.email } });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Erro no servidor.' });
+        res.status(500).json({ message: 'Erro no servidor.', error: error.message, stack: error.stack });
     }
 };
